@@ -44,9 +44,12 @@ export default function homeView() {
 
                 <button
                   class="mt-3 bg-blue-600 text-white px-4 py-2 rounded"
+                  id="btnReservation"
                 >
                   Gestionar Reservas
                 </button>
+
+                <div id="formContainer"></div>
 
               </section>
             `

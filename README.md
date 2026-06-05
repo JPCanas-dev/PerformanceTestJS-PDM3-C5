@@ -1,182 +1,190 @@
-# Guía para el README del Proyecto
+# Workspace Reservation System SPA
 
-> **Importante:** Este documento está escrito en español como guía para los coders. El archivo `README.md` que entreguen en su proyecto debe estar redactado completamente en inglés.
+## General description
 
----
+This project is about creating a Single Page Application (SPA) using JavaScript, Vite, TailwindCSS and JSON Server.
 
-# Project Canvas
+The application simulates a workspace reservation system where users can log in, navigate through protected routes and manage information from a simulated API.
 
-## Nombre sugerido del proyecto
+The main objective is to evaluate knowledge about:
 
-**Workspace Reservation System SPA**
-
-## Descripción general
-
-Este proyecto consiste en desarrollar una Single Page Application (SPA) utilizando JavaScript, Vite, TailwindCSS y JSON Server.
-
-La aplicación simula un sistema de reservas de espacios de trabajo donde los usuarios pueden autenticarse, navegar por rutas protegidas y gestionar información consumida desde una API simulada.
-
-El objetivo principal es evaluar conocimientos relacionados con:
-
-- Arquitectura SPA
-- Autenticación
-- Manejo de roles
-- Protección de rutas
-- Persistencia de sesión
-- Consumo de APIs
-- Manipulación del DOM
-- Modularización del código
-- Buenas prácticas de desarrollo
+* SPA architecture
+* Authentication
+* Role management
+* Route protection
+* Session persistence
+* API consumption
+* DOM manipulation
+* Code modularization
+* Good development practices
 
 ---
 
-## Contexto del problema
+# Problem Context
 
-Una empresa dispone de diferentes espacios de trabajo compartidos:
+A company has different shared workspaces:
 
-- Salas de reuniones
-- Oficinas privadas
-- Espacios de coworking
-- Auditorios
+* Meeting rooms
+* Private offices
+* Coworking spaces
+* Auditoriums
 
-Para evitar conflictos de horarios y mejorar la organización interna, se requiere una plataforma que permita administrar reservas de dichos espacios.
+To avoid schedule conflicts and improve internal organization, a platform is needed to manage workspace reservations.
 
-La aplicación debe contemplar dos roles:
+The application must have two roles:
 
-### Administrador (admin)
+## Administrator (admin)
 
-Puede:
+Can:
 
-- Ver todas las reservas
-- Crear reservas
-- Editar reservas
-- Eliminar reservas
-- Aprobar o rechazar reservas
-- Gestionar espacios de trabajo
-- Acceder a módulos administrativos
+* View all reservations
+* Create reservations
+* Edit reservations
+* Delete reservations
+* Approve or reject reservations
+* Manage workspaces
+* Access administrative modules
 
-### Usuario (user)
+## User (user)
 
-Puede:
+Can:
 
-- Consultar espacios disponibles
-- Crear reservas
-- Ver únicamente sus reservas
-- Modificar reservas pendientes
-- Cancelar sus propias reservas
-
----
-
-## Tecnologías utilizadas
-
-- JavaScript ES6+
-- Vite
-- TailwindCSS
-- JSON Server
-- Concurrently
-- HTML5
-- CSS3
+* View available workspaces
+* Create reservations
+* View only their own reservations
+* Edit pending reservations
+* Cancel their own reservations
 
 ---
 
-## Estructura base entregada
+# Technologies Used
 
-```txt
-src
-├── assets
-├── components
-│   └── Sidebar.js
-├── controllers
-│   └── login.controller.js
-├── router
-│   └── router.js
-├── views
-│   ├── loginView.js
-│   ├── homeView.js
-│   └── notFound.js
-├── utils.js
-├── main.js
-└── style.css
+* JavaScript ES6+
+* Vite
+* TailwindCSS
+* JSON Server
+* Concurrently
+* HTML5
+* CSS3
+
+---
+
+# Base Structure Provided
+
+```bash
+├── db.json
+├── index.html
+├── package.json
+├── package-lock.json
+├── public
+│   ├── favicon.svg
+│   └── icons.svg
+├── README.md
+├── src
+│   ├── api
+│   │   └── http.js
+│   ├── assets
+│   │   ├── hero.png
+│   │   ├── javascript.svg
+│   │   └── vite.svg
+│   ├── components
+│   │   ├── ReservationCard.js
+│   │   └── Sidebar.js
+│   ├── controllers
+│   │   ├── home.controller.js
+│   │   └── login.controller.js
+│   ├── main.js
+│   ├── router
+│   │   └── router.js
+│   ├── services
+│   │   └── reservation.service.js
+│   ├── style.css
+│   ├── utils.js
+│   └── views
+│       ├── homeView.js
+│       ├── loginView.js
+│       └── notFound.js
+└── vite.config.js
 ```
 
 ---
 
-## Explicación de la arquitectura
+# Architecture Explanation
 
-### Components
+## Components
 
-Contiene componentes reutilizables de interfaz.
+Contains reusable UI components.
 
-Ejemplo:
+Example:
 
 ```txt
 components/
 └── Sidebar.js
 ```
 
-El Sidebar puede reutilizarse en distintas vistas y centraliza la navegación principal del sistema.
+The Sidebar can be reused in different views and centralizes the main navigation of the system.
 
-### Controllers
+## Controllers
 
-Contienen la lógica de negocio y los eventos de la aplicación.
+Contain the business logic and application events.
 
-Ejemplo:
+Example:
 
 ```txt
 controllers/
 └── login.controller.js
 ```
 
-Responsabilidades:
+Responsibilities:
 
-- Capturar eventos del formulario
-- Validar credenciales
-- Consumir la API
-- Gestionar el inicio de sesión
-- Redireccionar usuarios
+* Capture form events
+* Validate credentials
+* Consume the API
+* Manage login
+* Redirect users
 
-### Views
+## Views
 
-Representan las pantallas de la aplicación.
+Represent the application screens.
 
-Actualmente:
+Currently:
 
-- Login
-- Home
-- Not Found (404)
+* Login
+* Home
+* Not Found (404)
 
-Cada vista retorna una plantilla HTML que es renderizada dinámicamente dentro del contenedor principal.
+Each view returns an HTML template that is rendered dynamically inside the main container.
 
-### Router
+## Router
 
-Administra la navegación interna de la SPA.
+Manages SPA navigation.
 
-Responsabilidades:
+Responsibilities:
 
-- Renderizar vistas
-- Gestionar rutas
-- Proteger vistas privadas
-- Redireccionar usuarios
-- Mostrar páginas 404
+* Render views
+* Manage routes
+* Protect private views
+* Redirect users
+* Show 404 pages
 
-### Utils
+## Utils
 
-Contiene funciones auxiliares reutilizables.
+Contains reusable helper functions.
 
-Actualmente:
+Currently:
 
-- Guardar sesión
-- Obtener sesión
-- Eliminar sesión
-- Validar autenticación
+* Save session
+* Get session
+* Remove session
+* Validate authentication
 
 ---
 
-## API simulada
+## Simulated API
 
-La aplicación utiliza JSON Server para simular una API REST.
+The application uses JSON Server to simulate a REST API.
 
-Ejemplo de usuario administrador:
+Admin user example:
 
 ```json
 {
@@ -187,7 +195,7 @@ Ejemplo de usuario administrador:
 }
 ```
 
-Ejemplo de usuario estándar:
+Standard user example:
 
 ```json
 {
@@ -200,30 +208,30 @@ Ejemplo de usuario estándar:
 
 ---
 
-## Configuración del entorno
+## Environment Setup
 
-Instalar dependencias:
+Install dependencies:
 
 ```bash
 npm install
 ```
 
-Ejecutar proyecto:
+Run the project:
 
 ```bash
 npm run dev
 ```
 
-Este comando levanta simultáneamente:
+This command starts:
 
-- Vite
-- JSON Server
+* Vite
+* JSON Server
 
-gracias al uso de Concurrently.
+at the same time using Concurrently.
 
 ---
 
-## Scripts sugeridos
+## Suggested Scripts
 
 ```json
 {
@@ -237,16 +245,16 @@ gracias al uso de Concurrently.
 
 ---
 
-## Credenciales de prueba
+## Test Credentials
 
-Administrador:
+Administrator:
 
 ```txt
 admin@test.com
 123456
 ```
 
-Usuario:
+User:
 
 ```txt
 user@test.com
@@ -255,38 +263,32 @@ user@test.com
 
 ---
 
-## Funcionalidades base incluidas
+## Included Features
 
-- Login funcional
-- Consumo de API mediante JSON Server
-- Persistencia de sesión con LocalStorage
-- Logout
-- Router SPA
-- Protección básica de rutas
-- Sidebar reutilizable
-- Página 404 personalizada
-- Configuración de TailwindCSS
-- Configuración de Vite
-
----
-
-## Módulos pendientes para desarrollar
-
-Los coders deberán implementar:
-
-- CRUD de reservas
-- CRUD de espacios
-- Gestión de roles
-- Guards avanzados
-- Validaciones de permisos
-- Dashboard administrativo
-- Estadísticas
-- Filtros y búsquedas
-- Notificaciones
-- Reglas de negocio
+* Functional login
+* API consumption with JSON Server
+* Session persistence using LocalStorage
+* Logout
+* SPA Router
+* Basic route protection
+* Reusable Sidebar
+* Custom 404 page
+* TailwindCSS setup
+* Vite setup
 
 ---
 
-## Nota para los coders
+## Features To Develop
 
-Aunque esta guía está escrita en español para facilitar la comprensión del proyecto, el archivo README.md entregado como evidencia debe estar redactado completamente en inglés.
+Developers must implement:
+
+* Reservation CRUD
+* Workspace CRUD
+* Role management
+* Advanced guards
+* Permission validations
+* Administrative dashboard
+* Statistics
+* Filters and searches
+* Notifications
+* Business rules
